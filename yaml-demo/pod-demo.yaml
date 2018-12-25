@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-demo
+  namespace: default
+  labels:
+    app: nginx
+    tier: frontend
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  - name: busybox
+    image: busybox:latest
+    command:
+    - "/bin/sh"
+    - "-c"
+    - "echo $(date) >> /usr/share/nginx/html/index.html; sleep 5"
