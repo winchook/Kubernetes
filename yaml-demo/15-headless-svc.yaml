@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx
+  name: headless-svc
+spec:
+  clusterIP: None
+  ports:
+  - port: 8080
+    targetPort: 80
+  selector:
+    app: nginx
+  sessionAffinity: None
